@@ -5,7 +5,7 @@ resource "aws_launch_configuration" "my_launch_config" {
 
   user_data = <<-EOF
   #!/bin/bash
-  echo "<h1 align='center'>Hello from Atos Bydgoszcz ${var.region} - ${var.env}</h1>" > index.html
+  echo "<h1 align='center'>Hello from Atos Bydgoszcz <font color='red'>${var.region} - ${var.env}</font></h1>" > index.html
   curl http://169.254.169.254/latest/meta-data/instance-id >> index.html
   sudo nohup busybox httpd -f -p "${var.web_port}" &
   EOF
